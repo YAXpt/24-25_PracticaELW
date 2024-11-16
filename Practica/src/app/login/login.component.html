@@ -1,0 +1,11 @@
+<form [formGroup]="loginForm" (submit)="onSubmit()">
+
+  <label for="email">Email</label>
+  <input type="email" id="email" required
+    formControlName="email">
+  <label for="password">Password</label>
+  <input type="password" id="password" required
+    formControlName="password">
+  <button type="submit" [disabled]="!loginForm.valid">Login</button>
+
+</form>
