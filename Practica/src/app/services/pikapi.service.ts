@@ -10,16 +10,16 @@ export class PikapiService {
 
   private httpClient = inject(HttpClient);
 
-  private baseURL = 'https://swapi.dev/api/';
+  private baseURL = 'http://localhost:3000';
 
   constructor() { }
 
   getItems() {
-    return this.httpClient.get<PikapiItems>(`${this.baseURL}items`);
+    return this.httpClient.get<PikapiItems>(`${this.baseURL}/items`);
   }
 
   getItem(id: number) {
-    return this.httpClient.get<PikapiItem>(`${this.baseURL}item/${id}`);
+    return this.httpClient.get<PikapiItem>(`${this.baseURL}/item/${id}`);
  }
 
 }

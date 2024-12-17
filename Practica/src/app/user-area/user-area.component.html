@@ -2,11 +2,10 @@
   <h2>Área de Usuarios Suscritos</h2>
   <p>Gracias por suscribirse a nuestro servicio. Tiene acceso a contenido exclusivo.</p>
   <ul>
-    <li *ngFor="let item of items">
+    <li *ngFor="let item of items; trackBy: trackById">
       <img [src]="item.image" alt="{{item.name}}">
       <h3>{{item.name}}</h3>
       <button (click)="buyItem(item)">Comprar</button>
       <button (click)="showDescription(item)">Descripción</button>
     </li>
   </ul>
-

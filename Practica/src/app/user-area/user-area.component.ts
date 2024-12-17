@@ -2,12 +2,13 @@ import { Component, inject, OnInit, signal } from '@angular/core';
 import { PikapiItem } from '../models/PikapiItem';
 import { PikapiItems } from '../models/PikapiItems';
 import { PikapiService } from '../services/pikapi.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-user-area',
   standalone: true,
   imports: [
-
+    RouterModule
   ],
   templateUrl: './user-area.component.html',
   styleUrl: './user-area.component.css'
