@@ -1,5 +1,7 @@
 import express from 'express';
-import { usersRouter } from './users.routes.js';
+import { usersRouter } from './Users/users.routes.js';
+import { productsRouter } from './Products/items.routes.js';
+import { pikminsRouter } from './Pikmins/pikmins.routes.js';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -13,10 +15,12 @@ const port = 3000;
 app.use(bodyParser.json());
 
 app.use('/users', usersRouter); // /users
+app.use('/items', productsRouter); // /items
+app.use('/pikmins', pikminsRouter); // /pikmins
 
 app.get('/', (req, res) => { //exemple
     res.json({
-        message: 'Hello World'
+        message: 'Nothing to see here'
     });
 });
 
