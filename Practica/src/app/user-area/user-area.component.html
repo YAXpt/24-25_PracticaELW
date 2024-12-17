@@ -1,18 +1,12 @@
 <h1>¡Bienvenido!</h1>
-<div class="subscribed-user-area">
   <h2>Área de Usuarios Suscritos</h2>
-  <p>Gracias por suscribirse a nuestro servicio. Ahora tiene acceso a contenido exclusivo.</p>
-  <div class="user-info">
-    <img src="assets/user-avatar.png" alt="User Avatar" class="user-avatar">
-    <div class="user-details">
-      <p><strong>Nombre:</strong> </p>
-      <p><strong>Email:</strong> </p>
-    </div>
-  </div>
-  <ul class="user-links">
-    <li><a href="/exclusive-content">Contenido Exclusivo</a></li>
-    <li><a href="/profile">Perfil</a></li>
-    <li><a href="/settings">Configuración</a></li>
-    <li><a href="/support">Soporte</a></li>
+  <p>Gracias por suscribirse a nuestro servicio. Tiene acceso a contenido exclusivo.</p>
+  <ul>
+    <li *ngFor="let item of items">
+      <img [src]="item.image" alt="{{item.name}}">
+      <h3>{{item.name}}</h3>
+      <button (click)="buyItem(item)">Comprar</button>
+      <button (click)="showDescription(item)">Descripción</button>
+    </li>
   </ul>
-</div>
+

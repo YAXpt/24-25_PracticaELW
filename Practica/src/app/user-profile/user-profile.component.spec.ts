@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UserAreaComponent } from './user-area.component';
+import { UserProfileComponent } from './user-profile.component';
 
-describe('UserAreaComponent', () => {
-  let component: UserAreaComponent;
-  let fixture: ComponentFixture<UserAreaComponent>;
+describe('UserProfileComponent', () => {
+  let component: UserProfileComponent;
+  let fixture: ComponentFixture<UserProfileComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [UserAreaComponent]
+      imports: [UserProfileComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(UserAreaComponent);
+    fixture = TestBed.createComponent(UserProfileComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -21,5 +21,3 @@ describe('UserAreaComponent', () => {
     expect(component).toBeTruthy();
   });
 });
-
-
