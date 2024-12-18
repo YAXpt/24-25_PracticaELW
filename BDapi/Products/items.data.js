@@ -1,4 +1,4 @@
-import { Item } from "./items.model.js";
+import { itemModel } from "./items.model.js";
 import mongoose from 'mongoose';
 
 const itemImage = "./Uploads/itemImages/";
@@ -40,24 +40,20 @@ const itemsData = [{
     stock: 3
 }];
 
-async function populateDatabase() {
+async function populateDatabaseI() {
     try {
-        await mongoose.connect("mongodb://localhost:27017/BDapi", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        // await mongoose.connect("mongodb://localhost:27017/myapp");
 
         // Limpiar la colección antes de poblarla
-        await Item.deleteMany();
+        await itemModel.deleteMany();
 
         // Insertar los datos iniciales
-        await Item.insertMany(itemsData);
+        await itemModel.insertMany(itemsData);
 
         console.log("Base de datos poblada con éxito.");
-        mongoose.disconnect();
     } catch (error) {
         console.error("Error al poblar la base de datos:", error);
     }
 }
 
-populateDatabase();
+export default populateDatabaseI;

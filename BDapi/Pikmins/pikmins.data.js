@@ -1,4 +1,4 @@
-import { Pikmin } from './pikmin.model.js';
+import { pikminModel } from './pikmins.model.js';
 import mongoose from 'mongoose';
 
 const pikminImage = "./Uploads/pikminImages/";
@@ -74,22 +74,19 @@ const pikminsData = [{
     image: `${pikminImage}10.jpg`
 }];
 
-async function populateDatabase() {
+async function populateDatabaseP() {
     try {
-        await mongoose.connect("mongodb://localhost:27017/BDapi", {
-            useNewUrlParser: true,
-            useUnifiedTopology: true,
-        });
+        // await mongoose.connect("mongodb://localhost:27017/BDapi");
 
         // Limpiar la colección antes de poblarla
-        await Pikmin.deleteMany();
+        await pikminModel.deleteMany();
 
         // Insertar los datos iniciales
-        await Pikmin.insertMany(pikminsData);
+        await pikminModel.insertMany(pikminsData);
 
     } catch (error) {
         console.error("Error al poblar la base de datos", error);
     }
 }
 
-populateDatabase();
+export default populateDatabaseP;
