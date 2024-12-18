@@ -1,4 +1,10 @@
+<h1>PIKMIN PAGE</h1>
+<p>Aqui encontrareis informacion sobre los diferentes tipos de Pikmin que existen.</p>
+<p>Disponemos de algunos productos para comprar, disponibles solamente para suscriptores.</p>
+<p>¡Registrate y no te pierdas lo que esta web ofrece!</p>
 <div id="personatges">
-  <section id="persones"><h2>Persones</h2></section>
   <section id="pikmins"><h2>Pikmins</h2></section>
+  <ul>
+    <li *ngFor="let pikmin of pikmins">{{ pikmin.name }}</li>
+  </ul>
 </div>

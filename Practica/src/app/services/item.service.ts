@@ -6,20 +6,20 @@ import { PikapiItems} from  '../models/PikapiItems';
 @Injectable({
   providedIn: 'root'
 })
-export class PikapiService {
+export class itemService {
 
   private httpClient = inject(HttpClient);
 
   private baseURL = 'http://localhost:3000';
 
-  constructor() { }
+  constructor() {}
 
   getItems() {
     return this.httpClient.get<PikapiItems>(`${this.baseURL}/items`);
   }
 
   getItem(id: number) {
-    return this.httpClient.get<PikapiItem>(`${this.baseURL}/item/${id}`);
+    return this.httpClient.get<PikapiItem>(`${this.baseURL}/items/${id}`);
  }
 
 }

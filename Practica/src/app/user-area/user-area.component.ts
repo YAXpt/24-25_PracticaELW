@@ -1,7 +1,7 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { PikapiItem } from '../models/PikapiItem';
 import { PikapiItems } from '../models/PikapiItems';
-import { PikapiService } from '../services/pikapi.service';
+import { itemService } from '../services/item.service';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -13,15 +13,15 @@ import { RouterModule } from '@angular/router';
   templateUrl: './user-area.component.html',
   styleUrl: './user-area.component.css'
 })
-export class UserAreaComponent {
-  private pikapiService = inject(PikapiService);
+
+export class UserAreaComponent implements OnInit {
+  private itemService = inject(itemService);
 
   items = signal<PikapiItem[]>([]);
-
   selectedItem = signal<number | null>(null);
 
   ngOnInit(): void {
-    this.pikapiService.getItems()
+    this.itemService.getItems()
       .subscribe((items: PikapiItems) => {
       this.items.set(items.results);
     });
@@ -31,10 +31,8 @@ export class UserAreaComponent {
   buyItem(item: PikapiItem): void {
     // Assuming you want to set the selected item
     this.selectedItem.set(item.id);
+    alert(`Has comprado "${item.name}" por ${item.price}€`);
   }
 
-  showDescription(item: PikapiItem): void {
-    this.selectedItem.set(item.id);
-  }
 }
 

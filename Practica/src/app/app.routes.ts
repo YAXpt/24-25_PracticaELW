@@ -16,7 +16,7 @@ export const routes: Routes = [
     title: 'Login'
   },
   {
-    path: 'user/:id',
+    path: 'user',
     component: UserAreaComponent,
     title: 'User Area'
   },
