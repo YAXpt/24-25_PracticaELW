@@ -23,10 +23,13 @@ export class UserAreaComponent implements OnInit {
   selectedItem = signal<string | null>(null);
 
   ngOnInit(): void {
-    this.itemService.getItems()
-       .subscribe((items: PikapiItems) => {
-        this.items.set(items.results);
-        console.log(this.items());
+    const baseUrl = 'http://localhost:3000';
+
+    this.itemService.getItems().subscribe((response: PikapiItems) => {
+      response.results.forEach((item: PikapiItem) => {
+        item.image = `${baseUrl}${item.image}`;
+      });
+      this.items.set(response.results);
     });
   }
 

@@ -1,7 +1,7 @@
 import { pikminModel } from './pikmins.model.js';
 import mongoose from 'mongoose';
 
-const pikminImage = "./Uploads/pikminImages/";
+const pikminImage = "/Uploads/pikminImages/";
 
 const pikminsData = [{
     name: 'Pikmin Rojo',
