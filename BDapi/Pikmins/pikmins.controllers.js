@@ -11,5 +11,5 @@ export async function handleGetPikmin(req, res) { //obtener usuario por id, a tr
     if (!foundPikmin) {
         return res.status(404).json({ message: "Pikmin no encontrado." });
     }
-    res.json({results: foundPikmin});
+    res.json( foundPikmin );
 }

@@ -11,7 +11,7 @@ export async function handleGetProduct(req, res) { //obtener usuario por id, a t
         if (!item) {
             return res.status(404).json({ message: "Item no encontrado." });
         }
-        res.json({results: item});
+        res.json(item);
 }
 
 export async function updateItemStock(req, res) {

@@ -23,7 +23,7 @@ export class UserAreaComponent implements OnInit {
   selectedItem = signal<string | null>(null);
 
   ngOnInit(): void {
-    const baseUrl = 'http://localhost:3000/Uploads';
+    const baseUrl = 'http://localhost:3000';
 
     this.itemService.getItems().subscribe((response: PikapiItems) => {
       response.results.forEach((item: PikapiItem) => {
@@ -34,9 +34,17 @@ export class UserAreaComponent implements OnInit {
   }
 
   buyItem(item: PikapiItem): void {
-    // Assuming you want to set the selected item
-    this.selectedItem.set(item.id);
-    alert(`Has comprado "${item.name}" por ${item.price}€`);
+    console.log(item);
+    console.log(item.stock);
+    if (item.stock === 0) {
+      alert('No hay stock');
+      return;
+    }
+
+    this.itemService.putItem(item._id).subscribe(() => {
+      this.items.set([...this.items()]);
+      alert(`Has comprado "${item.name}" por ${item.price}€`);
+    });
   }
 
 }

@@ -10,7 +10,6 @@ import { PikapiItems} from  '../models/PikapiItems';
 export class ItemService {
 
   private httpClient = inject(HttpClient);
-
   private baseURL = 'http://localhost:3000';
 
   constructor() {}
@@ -19,8 +18,13 @@ export class ItemService {
     return this.httpClient.get<PikapiItems>(`${this.baseURL}/items`);
   }
 
-  getItem(id: number) {
+  getItem(id: String) {
     return this.httpClient.get<PikapiItem>(`${this.baseURL}/items/${id}`);
  }
+
+  putItem(_id: String) {
+    console.log(_id);
+    return this.httpClient.put(`${this.baseURL}/items/${_id}`, {});
+  }
 
 }

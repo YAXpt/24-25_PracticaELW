@@ -3,7 +3,7 @@
   <p>Gracias por suscribirse a nuestro servicio. Tiene acceso a contenido exclusivo.</p>
 
   <ul>
-    @for(item of items(); track item.id) {
+    @for(item of items(); track item._id) {
         <h3>{{ item.name }}</h3>
         <img [src]="item.image" alt="{{ item.name }}" width="100" height="100">
         <button (click)="buyItem(item)">Comprar</button>
