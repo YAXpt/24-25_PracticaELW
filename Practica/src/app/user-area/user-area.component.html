@@ -4,9 +4,8 @@
 
   <ul>
     @for(item of items(); track item.id) {
-        <p>opp</p>
-        <img [src]="item.image" alt="{{ item.name }}" width="100" height="100">
         <h3>{{ item.name }}</h3>
+        <img [src]="item.image" alt="{{ item.name }}" width="100" height="100">
         <button (click)="buyItem(item)">Comprar</button>
     }
   </ul>

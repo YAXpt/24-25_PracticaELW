@@ -23,7 +23,7 @@ export class UserAreaComponent implements OnInit {
   selectedItem = signal<string | null>(null);
 
   ngOnInit(): void {
-    const baseUrl = 'http://localhost:3000';
+    const baseUrl = 'http://localhost:3000/Uploads';
 
     this.itemService.getItems().subscribe((response: PikapiItems) => {
       response.results.forEach((item: PikapiItem) => {
