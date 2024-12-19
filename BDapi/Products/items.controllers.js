@@ -2,7 +2,7 @@ import { itemModel } from "./items.model.js";
 
 export async function handleGetProducts(req, res) {
     const items = await itemModel.find({});
-    res.json(items);
+    res.json({results: items});
 }
 
 export async function handleGetProduct(req, res) { //obtener usuario por id, a través de mongoose, get
@@ -11,7 +11,7 @@ export async function handleGetProduct(req, res) { //obtener usuario por id, a t
         if (!item) {
             return res.status(404).json({ message: "Item no encontrado." });
         }
-        res.json(item);
+        res.json({results: item});
 }
 
 export async function updateItemStock(req, res) {

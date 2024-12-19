@@ -19,18 +19,15 @@ export class UserAreaComponent implements OnInit {
 
   items = signal<PikapiItem[]>([]);
 
+
   selectedItem = signal<string | null>(null);
 
   ngOnInit(): void {
     this.itemService.getItems()
-      .subscribe((items: PikapiItems) => {
-        console.log('Datos recibidos desde la API:', JSON.stringify(items, null, 2));
-        this.items.set(items.results); // Asigna los items al signal
-      });
-  }
-
-  getItems(): PikapiItem[] {
-    return this.items();
+       .subscribe((items: PikapiItems) => {
+        this.items.set(items.results);
+        console.log(this.items());
+    });
   }
 
   buyItem(item: PikapiItem): void {

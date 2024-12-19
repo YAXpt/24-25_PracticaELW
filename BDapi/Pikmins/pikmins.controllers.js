@@ -2,7 +2,7 @@ import { pikminModel } from "./pikmins.model.js";
 
 export async function handleGetPikmins(req, res) {
     const pikmins = await pikminModel.find({});
-    res.json(pikmins);
+    res.json({ results: pikmins });
 }
 
 export async function handleGetPikmin(req, res) { //obtener usuario por id, a través de mongoose, get
@@ -11,5 +11,5 @@ export async function handleGetPikmin(req, res) { //obtener usuario por id, a tr
     if (!foundPikmin) {
         return res.status(404).json({ message: "Pikmin no encontrado." });
     }
-    res.json(foundPikmin);
+    res.json({results: foundPikmin});
 }

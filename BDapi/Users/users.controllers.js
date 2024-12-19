@@ -2,13 +2,13 @@ import { userModel } from './users.model.js';
 
 export async function handleGetUsers(req, res) {
     const users = await userModel.find({});
-    res.json(users);
+    res.json({ results: users });
 }
 
 export async function handleGetUser(req, res) { //obtener usuario por id, a través de mongoose, get
     const id = req.params.id;
     const foundUser = await userModel.findById(id);
-    res.json(foundUser);
+    res.json({results: foundUser});
 }
 
 export async function createUser(req, res) { //crear usuario, post 
