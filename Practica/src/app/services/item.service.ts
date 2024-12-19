@@ -6,7 +6,8 @@ import { PikapiItems} from  '../models/PikapiItems';
 @Injectable({
   providedIn: 'root'
 })
-export class itemService {
+
+export class ItemService {
 
   private httpClient = inject(HttpClient);
 

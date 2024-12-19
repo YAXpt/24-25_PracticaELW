@@ -1,7 +1,9 @@
 export interface PikapiItem {
-  id: number;
+  id: string;
   name: string;
-  image: string;
   price: number;
+  image: string;
+  stock: number;
+  _v: number;
 }
 
