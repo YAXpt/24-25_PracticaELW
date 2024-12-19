@@ -1,5 +1,4 @@
 import path from 'path';
-import fs from 'fs-extra';
 
 const getDirname = (url) => {
     const pathName = new URL(url).pathname;

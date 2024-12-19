@@ -2,9 +2,8 @@ import express from 'express';
 import { usersRouter } from './Users/users.routes.js';
 import { productsRouter } from './Products/items.routes.js';
 import { pikminsRouter } from './Pikmins/pikmins.routes.js';
-import { imagesRouter } from './Uploads/images.routes.js';
-import populateDatabaseP from './Pikmins/pikmins.data.js';  // Importamos la función de carga de datos
-import populateDatabaseI from './Products/items.data.js';  // Importamos la función de carga de datos
+// import populateDatabaseP from './Pikmins/pikmins.data.js';  // Importamos la función de carga de datos
+// import populateDatabaseI from './Products/items.data.js';  // Importamos la función de carga de datos
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import cors from 'cors';
@@ -24,21 +23,20 @@ app.use('/Uploads/pikminImages', express.static(path.resolve('Uploads', 'pikminI
 app.use('/users', usersRouter); // /users
 app.use('/items', productsRouter); // /items
 app.use('/pikmins', pikminsRouter); // /pikmins
-app.use('/images', imagesRouter); // /images
 
-async function loadInitialData() {
-    try {
-        // Cargar datos iniciales para Pikmins, Products, Users, etc.
-        await populateDatabaseP();  // Esta función debe poblar la base de datos de Pikmin
-        await populateDatabaseI();  // Esta función debe poblar la base de datos de Products
-        console.log('Datos iniciales cargados exitosamente');
-    } catch (error) {
-        console.error('Error al cargar los datos iniciales:', error);
-    }
-}
+// async function loadInitialData() {
+//     try {
+//         // Cargar datos iniciales para Pikmins, Products, Users, etc.
+//         await populateDatabaseP();  // Esta función debe poblar la base de datos de Pikmin
+//         await populateDatabaseI();  // Esta función debe poblar la base de datos de Products
+//         console.log('Datos iniciales cargados exitosamente');
+//     } catch (error) {
+//         console.error('Error al cargar los datos iniciales:', error);
+//     }
+// }
 
-// Cargar los datos iniciales después de la conexión a la base de datos
-loadInitialData();
+// // Cargar los datos iniciales después de la conexión a la base de datos
+// loadInitialData();
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
