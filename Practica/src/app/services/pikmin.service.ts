@@ -7,7 +7,7 @@ import { Pikmins } from '../models/Pikmins';
   providedIn: 'root'
 })
 
-export class ItemService {
+export class PikminService {
 
   private httpClient = inject(HttpClient);
 

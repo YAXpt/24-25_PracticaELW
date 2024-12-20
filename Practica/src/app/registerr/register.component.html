@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm" (submit)="onSubmit()">
+<form [formGroup]="registerForm" (submit)="onSubmit()">
 
   <label for="name">Username</label>
   <input type="text" id="name" required
@@ -8,6 +8,6 @@
   <input type="email" id="email" required
     formControlName="email">
 
-  <button type="submit" [disabled]="!loginForm.valid">Login</button>
+  <button type="submit" [disabled]="!registerForm.valid">Register</button>
 
 </form>

@@ -1,0 +1,54 @@
+h1 {
+  color: #2e8b57; /* SeaGreen */
+  text-align: center;
+  margin-top: 20px;
+  font-family: 'Verdana', sans-serif;
+}
+
+p {
+  font-size: 1em;
+  color: #0a311b;
+  text-align: center;
+  margin: 10px 0;
+  font-family: 'Verdana', sans-serif;
+}
+
+#personatges {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  margin-top: 20px;
+  font-family: 'Verdana', sans-serif;
+}
+
+#personatges h3 {
+  font-size: 18px;
+  color: #246f45; /* SeaGreen */
+  text-align: center;
+  font-family: 'Verdana', sans-serif;
+}
+
+#personatges img {
+  display: block;
+  margin: 0 auto;
+  border-radius: 50%;
+  width: 200px;
+  height: 200px;
+}
+
+#personatges button {
+  display: block;
+  margin: 10px auto;
+  padding: 5px 10px;
+  background-color: #3cb371; /* MediumSeaGreen */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: 'Verdana', sans-serif;
+}
+
+#personatges button:hover {
+  background-color: #2e8b57; /* SeaGreen */
+}

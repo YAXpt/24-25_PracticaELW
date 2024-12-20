@@ -11,40 +11,34 @@ export async function handleGetUser(req, res) { //obtener usuario por id, a trav
     res.json(foundUser);
 }
 
-export async function createUser(req, res) { //crear usuario, post 
-    const existingUser = await userModel.findOne({ email: req.body.email });
-    if (existingUser) {
-        res.status(409).send('Conflict: User already exists');
-        return;
+export async function handleLogin(req, res) {
+    const { email, name } = req.body;
+    const foundUser = await userModel.findOne({ email });
+  
+    if (!foundUser) {
+      return res.status(404).json({ message: "User not found." });
     }
-    const newUser = new userModel(req.body);
-    newUser.favourites = [];
-    newUser.buyed = [];
+    if (foundUser.name !== name) {
+      return res.status(401).json({ message: "Invalid credentials. Name does not match." });
+    }
+    res.status(200).json(foundUser);
+  }
+
+export async function createUser(req, res) { //crear usuario, post 
+    const { username, email } = req.body;
+    const existingUser = await userModel.findOne({ email: email });
+    if (existingUser) {
+        return res.status(400).json({ message: "User with this email already exists." });
+    }
+
+    const newUser = new userModel({
+        username: username,
+        email: email,
+        buyed: []
+    });
+
     await newUser.save();
     res.json(newUser);
-}
-
-export async function updateUserFavourites(req, res) { //actualizar usuario, put
-    const id = req.params.id;
-    const favouriteItem = req.body.favourite;
-    const user = await userModel.findById(id);
-
-    // Verificar si el elemento ya existe en favoritos
-    const favouriteIndex = user.favourites.indexOf(favouriteItem);
-
-    if (favouriteIndex !== -1) {
-        // Si el elemento existe, lo eliminamos
-        user.favourites.splice(favouriteIndex, 1);
-    } else {
-        // Si no existe, añadimos solo si hay espacio (máximo 4)
-        if (user.favourites.length >= 4) {
-            return res.status(400).json({ message: "Favourites limit reached (4 maximum)." });
-        }
-        user.favourites.push(favouriteItem);
-    }
-    await user.save();
-
-    return res.status(200).json({message: "Favourites updated successfully."});
 }
 
 export async function updateUserBuyed(req, res) { //actualizar usuario, put

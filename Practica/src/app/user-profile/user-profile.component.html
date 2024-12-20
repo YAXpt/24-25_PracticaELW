@@ -1,20 +1,28 @@
 <div class="user-profile">
-  <h1>User Profile</h1>
-
-  <section class="favourites-pikmin">
-    <h2>Favourites Pikmin</h2>
+  <h1>Profile</h1>
+  <section class="user-info">
+    <h2>User Info</h2>
     <ul>
-      <li></li>
+      <li>
+        <strong>Username:</strong> {{ user()?.username }}
+      </li>
     </ul>
   </section>
-
   <section class="buying-history">
     <h2>Buying History</h2>
     <ul>
       <li>
-        <!-- <span>{{ items.date }} - </span>
-        <span>{{ items.productName }}</span> -->
+        @for(item of items(); track item){
+          <div class="item">
+            <p>{{ item.name }}</p>
+            <p>{{ item.price }}</p>
+          </div>
+        }
       </li>
     </ul>
   </section>
 </div>
+<div>
+  <button>
+    <a [href]="'/area/' + userId">Ir a mi perfil</a>
+  </button></div>

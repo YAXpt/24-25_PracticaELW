@@ -1,12 +1,13 @@
 h1 {
   font-size: 2em;
+  font-family: "Verdana", sans-serif;
   color: #333;
   text-align: center;
   margin-bottom: 20px;
 }
 
 nav {
-  background-color: #f8f8f8;
+  background-color: #17381d;
   border-bottom: 1px solid #ddd;
   padding: 10px 0;
 }
@@ -16,6 +17,7 @@ nav ul {
   padding: 0;
   margin: 0;
   display: flex;
+  font-family: Verdana, sans-serif;
   justify-content: center;
 }
 
@@ -25,7 +27,7 @@ nav ul li {
 
 nav ul li a {
   text-decoration: none;
-  color: #007bff;
+  color: #d4e9e0;
   font-weight: bold;
 }
 
