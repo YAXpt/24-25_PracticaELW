@@ -31,7 +31,7 @@ export class RegisterComponent {
         email: this.registerForm.value.email as string
       };
       this.userService.createUser(user).subscribe({
-        next: (response) => alert('Usuario registrado con éxito'),
+        next: (response) => alert('Nuevo usuario registrado, inicie sesión desde "Login"'),
         error: (err) => alert('Error al registrar usuario'),
     });
     } else {

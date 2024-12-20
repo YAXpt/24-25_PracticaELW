@@ -4,7 +4,7 @@
 <div id="items">
   @for(item of items(); track item._id) {
   <h3>{{ item.name }}</h3>
-  <img [src]="item.image" alt="{{ item.name }}" width="100" height="100">
+  <img [src]="item.image" alt="{{ item.name }}">
   <button (click)="buyItem(item)">Comprar</button>
   }
 </div>

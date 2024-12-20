@@ -15,6 +15,7 @@ import { RouterModule } from '@angular/router';
 })
 
 export class HomeComponent {
+  
 private pikminService = inject(PikminService);
 
   pikmins = signal<Pikmin[]>([]);
@@ -32,7 +33,12 @@ private pikminService = inject(PikminService);
     });
   }
 
+  hideInfo(): void {
+    this.selectedPikmin.set(null);
+  }
+
   showInfo(pikmin: Pikmin): void {
+    this.selectedPikmin.set(pikmin._id);
   }
 
 }

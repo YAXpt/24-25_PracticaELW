@@ -1,7 +1,6 @@
 import { itemModel } from "./items.model.js";
-import mongoose from 'mongoose';
 
-const itemImage = "/itemImages/";
+const itemImage = "/Uploads/itemImages/";
 
 const itemsData = [{
     name: "Bola de cristal: recolector",
